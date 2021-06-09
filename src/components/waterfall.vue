@@ -9,14 +9,30 @@
 </template>
 <script>
 export default {
+  props: {
+    col: {
+      type: Number,
+      default: 2,
+    }
+  },
   data() {
     return {
       testData: [],
-      col: 5,
+      // col: 5,
     }
   },
   mounted() {
     this.init()
+  },
+  watch: {
+    col: {
+      handler(val) {
+        console.log('%c 🍾 当前列数改变val: ', 'font-size:20px;background-color: #2EAFB0;color:#fff;', val);
+        this.$nextTick(()=>{
+          this.init()
+        })
+      }
+    }
   },
   methods: {
     init() {
@@ -31,13 +47,13 @@ export default {
         this.testData.push(item)
       }
       this.$nextTick(()=>{
-        // 计算最大的高度 = 找出所有列中最大高度 + margin * 当前列元素个数
+        // 计算最大的高度 = 找出所有列中最大高度 + (margin + border) * 当前列元素个数
         let temp = {}
         this.$refs.items.forEach(ele => {
-          temp[ele.style.order] = (temp[ele.style.order] || 0) + ele.clientHeight
+          temp[ele.style.order] = (temp[ele.style.order] || 0) + ele.clientHeight +17
         })
-        const maxHeight = Math.max(...Object.values(temp)) + (15 * Object.values(temp).length)
-        this.$refs.wrapper.style.height = maxHeight + 'px'
+        const maxHeight = Math.max(...Object.values(temp))
+        this.$refs.wrapper.style.height = `${maxHeight}px`
       })
     }
   }
