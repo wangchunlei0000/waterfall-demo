@@ -2,9 +2,9 @@
   <div class="hello">
     <p>waterfall-demo</p>
     <p>当前列数 {{ col }}</p>
-    <!-- <span class="btn" @click="col--"> - </span>
-    <span class="btn" @click="col++"> + </span> -->
-    <waterfall :col="4"></waterfall>
+    <span class="btn" @click="sub"> - </span>
+    <span class="btn" @click="add"> + </span>
+    <waterfall :col="col"></waterfall>
   </div>
 </template>
 
@@ -18,6 +18,14 @@ export default {
   },
   components: {
     waterfall
+  },
+  methods: {
+    sub() {
+      this.col -= 1
+    },
+    add() {
+      this.col += 1
+    }
   }
 }
 </script>

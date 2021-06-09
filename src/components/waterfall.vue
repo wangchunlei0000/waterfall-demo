@@ -37,8 +37,9 @@ export default {
   methods: {
     init() {
       // 造一些数据 用于展示瀑布流中元素
-      for(let i = 1; i <= 20; i++) {
-        const iheight = Math.floor(Math.random()*200)
+      this.testData = []
+      for(let i = 1; i <= 25; i++) {
+        const iheight = Math.floor(Math.random()*100 + 40)
         const item = {
           iheight: iheight,
           msg: `高度：${iheight}px 排序${i}`,
@@ -65,7 +66,6 @@ export default {
   overflow-y: auto;
 }
 .test-wrapper {
-  background-color: aquamarine;
   height: 800px;
   margin-top: 40px;
   display: flex;
