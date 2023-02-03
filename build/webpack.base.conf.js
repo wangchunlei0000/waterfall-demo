@@ -22,7 +22,7 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
-  publickPath: 'waterfall-demo',
+  publicPath: 'waterfall-demo',
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
