@@ -18,7 +18,7 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: 'waterfall-demo'
+    publicPath: '/waterfall-demo'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
